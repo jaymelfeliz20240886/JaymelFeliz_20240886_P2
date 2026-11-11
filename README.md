@@ -307,12 +307,8 @@ Durante el despliegue del laboratorio se resolvieron los siguientes desafíos t�
 
 ## 9. Running Configurations Completas
 
-Los archivos de configuración completos e individuales de cada equipo se encuentran organizados dentro de la carpeta `/configs`:
-* `configs/R1-20240886.txt`
-* `configs/SW1-20240886.txt`
-* `configs/FortiGate-20240886.conf`
+Los archivos de configuración completos e individuales de cada equipo se encuentran subidos dentro del repositorio.
 
----
 
 ## 10. Scripts y Archivos Utilizados
 
