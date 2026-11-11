@@ -1,0 +1,88 @@
+version 15.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+
+hostname R1-20240886
+
+boot-start-marker
+boot-end-marker
+
+logging buffered 16384
+
+aaa new-model
+aaa authentication login default group radius local
+aaa authorization exec default group radius local
+aaa accounting exec default start-stop group radius
+aaa session-id common
+
+ip dhcp excluded-address 10.20.24.1 10.20.24.20
+
+ip dhcp pool LAN_POOL
+ network 10.20.24.0 255.255.255.0
+ default-router 10.20.24.1
+ dns-server 10.20.24.10 8.8.8.8
+
+no ip domain lookup
+ip domain name lab.local
+ip cef
+no ipv6 cef
+
+username admin secret 5 $1$vV6T$2.BTX9A.R6cE0ZJI35Evf1
+
+ip ssh version 2
+ip tcp synwait-time 5
+no ip icmp rate-limit unreachable
+
+crypto isakmp policy 10
+ authentication pre-share
+ group 14
+crypto isakmp key ClaveVPN20240886 address 192.168.86.2
+
+crypto ipsec transform-set TS-VPN esp-des esp-sha-hmac
+ mode tunnel
+
+crypto map MAP-FORTIGATE 10 ipsec-isakmp
+ set peer 192.168.86.2
+ set transform-set TS-VPN
+ match address 100
+
+interface FastEthernet0/0
+ description CONEXION-A-FORTIGATE
+ ip address 192.168.86.1 255.255.255.252
+ duplex auto
+ speed auto
+ crypto map MAP-FORTIGATE
+
+interface FastEthernet1/0
+ description CONEXION-A-LAN
+ ip address 10.20.24.1 255.255.255.0
+ duplex auto
+ speed auto
+
+no ip http server
+no ip http secure-server
+
+ip route 172.16.86.0 255.255.255.0 192.168.86.2
+
+access-list 100 permit ip 10.20.24.0 0.0.0.255 172.16.86.0 0.0.0.255
+
+radius server WIN-NPS
+ address ipv4 10.20.24.10 auth-port 1812 acct-port 1813
+ key cisco123
+
+line con 0
+ exec-timeout 10 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line aux 0
+ exec-timeout 10 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ transport input ssh
+ login authentication default
+
+end
