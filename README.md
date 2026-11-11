@@ -2,6 +2,7 @@
 # Laboratorio de Infraestructura de Red, Seguridad y Monitoreo
 **Estudiante:** Matrícula 20240886  
 **Entorno de Simulación:** GNS3  
+<img width="976" height="696" alt="imagen" src="https://github.com/user-attachments/assets/1582cc7f-63b8-480c-afb3-35817eb84c12" />
 
 ---
 
@@ -69,6 +70,7 @@ La red se divide en tres zonas principales:
 ```
 
 ---
+<img width="976" height="696" alt="imagen" src="https://github.com/user-attachments/assets/50ee803e-14a3-448b-acf9-7f640b773e40" />
 
 ## 3. Tabla de Direccionamiento IP
 
