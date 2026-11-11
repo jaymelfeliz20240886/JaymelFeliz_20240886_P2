@@ -260,7 +260,10 @@ Durante el despliegue del laboratorio se resolvieron los siguientes desafíos t�
   #pkts encaps: 49, #pkts encrypt: 49, #pkts digest: 49
   #pkts decaps: 49, #pkts decrypt: 49, #pkts verify: 49
   ```
+  <img width="889" height="502" alt="imagen" src="https://github.com/user-attachments/assets/ec438536-3d3e-4fff-8755-bc756d5a0374" />
+
 * **Demostración de Caída:** Al hacer clic en **Bring Down** en la GUI de FortiGate, el flujo de paquetes se interrumpe al instante (`Request timed out`), demostrando que la comunicación ocurre **únicamente** cuando la VPN está activa.
+<img width="1102" height="583" alt="imagen" src="https://github.com/user-attachments/assets/a77c854a-66b2-49c0-8b89-feb72439f656" />
 
 ### 7.2 Prueba de Autenticación AAA RADIUS (Requisito 9)
 * **Acceso Fallido:** Al intentar SSH con el usuario `admin20240886` e ingresar una clave errónea, la consola emite la traza:
@@ -268,6 +271,8 @@ Durante el despliegue del laboratorio se resolvieron los siguientes desafíos t�
   *Nov 11 10:30:12.105: AAA/AUTHEN/LOGIN (0000000A): Status = FAIL
   *Nov 11 10:30:12.107: RADIUS/DEBU: Received Radius response - ACCESS-REJECT
   ```
+  <img width="1108" height="279" alt="imagen" src="https://github.com/user-attachments/assets/d25a3524-ac8e-4bdd-b171-9e8bfd878cb3" />
+
 * **Acceso Exitoso:** Al ingresar la contraseña correcta del Active Directory:
   ```text
   *Nov 11 10:31:04.220: RADIUS/DEBU: Received Radius response - ACCESS-ACCEPT
@@ -275,24 +280,30 @@ Durante el despliegue del laboratorio se resolvieron los siguientes desafíos t�
   ```
 
 ---
+<img width="1435" height="559" alt="imagen" src="https://github.com/user-attachments/assets/b2b6293b-fbda-48e4-a454-a48a3b3b2554" />
 
 ## 8. Diagramas y Evidencias Visuales
 *(Los archivos de imagen se encuentran alojados en la carpeta `/images` de este repositorio)*
 
 * **Diagrama General de la Topología:**  
-  `![Topologia](images/01_diagrama_topologia.png)`
+  <img width="948" height="679" alt="imagen" src="https://github.com/user-attachments/assets/8f9dab0f-5d0d-4a32-806e-70d4a9d14f40" />
 * **Túnel VPN IPsec Activo en FortiGate GUI:**  
-  `![VPN Up](images/02_vpn_ipsec_gui_up.png)`
+  <img width="1114" height="237" alt="imagen" src="https://github.com/user-attachments/assets/ee09f8e4-36f9-4aca-96eb-9541c27fd507" />
+
 * **Demostración de Caída de Tráfico (Bring Down):**  
-  `![VPN Caida](images/03_vpn_ipsec_caida.png)`
+ <img width="1099" height="57" alt="imagen" src="https://github.com/user-attachments/assets/214e161d-9676-46f7-a02d-ce238f777506" />
 * **Concesión de IP por DHCP en Webterm:**  
-  `![DHCP Evidencia](images/04_dhcp_asignacion.png)`
+  <img width="997" height="171" alt="imagen" src="https://github.com/user-attachments/assets/cafa57bd-4a49-4103-afc8-54a366941395" />
 * **Monitoreo SNMP del Switch en Zabbix (Estado Verde):**  
-  `![Zabbix SNMP](images/06_zabbix_snmp_green.png)`
-* **Logs de AAA / RADIUS (Acceso Exitoso y Fallido):**  
-  `![Logs AAA RADIUS](images/08_logs_aaa_radius_exito_fallo.png)`
+<img width="1507" height="532" alt="imagen" src="https://github.com/user-attachments/assets/bc3642aa-9dbd-43f3-8d52-0da9bb65639e" />
+
+* **Logs de AAA / RADIUS (Acceso Exitoso y Fallido):**
+* ACCESS ACCEPT:
+ <img width="1411" height="555" alt="imagen" src="https://github.com/user-attachments/assets/5e8226a5-f14c-4ab9-b1d5-c68569a4d678" />
+* ACCESS DENIED:
 
 ---
+<img width="1417" height="559" alt="imagen" src="https://github.com/user-attachments/assets/6f194345-9d0f-4489-91ea-acc9fe7650c7" />
 
 ## 9. Running Configurations Completas
 
